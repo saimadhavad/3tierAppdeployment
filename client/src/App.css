@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background: linear-gradient(to right, #bbd2c5, #536976, #292e49);
+}
+.App {
+  text-align: center;
+}
+.signupDiv,.signinDiv{
+  background: #bbd2c5;
+  width: 650px;
+  padding: 25px;
+  margin: 50px auto;
+  border-radius: 25px;
+}
+.dashboardDiv,.tasksDiv,.leavesDiv,.editProfileDiv  {
+  background: #bbd2c5;
+  width: 950px;
+  padding: 25px;
+  margin: 50px auto;
+  border-radius: 25px;
+}
+.signupHOne,.signinHOne,.editProffileHOne{
+  font-size: 2.5rem;
+}
+
+.formGroup{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.formGroup label {
+  display:flex;
+  flex-basis: 45%;
+  justify-content: right;
+  align-items: center;
+}
+.formGroup span {
+  padding: 0px 5px 0px 5px;
+  display:flex;
+  align-items: center;
+}
+.formGroup .inputRight {
+  display: flex;
+  flex-basis: 55%;
+}
+input, input[type="number"], input[type="email"], input[type="password"] {
+  padding: 8px;
+  border: 0px;
+  border-radius: 5px;
+  width: 70%;
+}
+input::placeholder {
+  padding: 5px;
+  color: #536976;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+.profilePicPreview{
+  width: 150px;
+  height: 150px;
+  border: 1px solid #536976;
+  margin-bottom: 10px;
+}
+.buttonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;  
+}
+button {
+  padding: 11px;
+  border: 0px;
+  border-radius: 10px;
+  background: #536976;
+  color: #bbd2c5;
+  font-weight: 600;
+}
+.signupLinkBTN,.signinLinkBTN {
+  padding: 11px;
+  background: #536976;
+  color: #bbd2c5;
+  border: 0px;
+  border-radius: 10px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.dashboardPPPreview{
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+}
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.navLink {
+  text-decoration: none;
+}
