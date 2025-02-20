@@ -7,6 +7,7 @@
 }
 body {
   background: linear-gradient(to right, #bbd2c5, #536976, #292e49);
+  background-repeat: no-repeat;
 }
 .App {
   text-align: center;
