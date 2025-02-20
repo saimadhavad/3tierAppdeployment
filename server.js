@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "./client/build")));
 // EXPRESS MIDDLEWARE FOR JSON
 app.use(express.json());
 // EXPRESS MIDDLEWARE FOR URL ENCODED
- app.use(express.urlencoded());
+//  app.use(express.urlencoded());
 // EXPRESS MIDDLEWARE FOR FORMDATA(MULTER)
 const storage = multer.diskStorage({
     destination: (req, file, cb)=> {
