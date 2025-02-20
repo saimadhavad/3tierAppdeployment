@@ -29,7 +29,7 @@ function Signin() {
             body:dataToSend,
         }
 
-        let JSONData =  await fetch("1/validateToken",reqOptions);
+        let JSONData =  await fetch("/validateToken",reqOptions);
         // (JSON=>JSO)
         let JSOData = await JSONData.json();
         console.log(JSOData);
