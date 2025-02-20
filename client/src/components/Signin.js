@@ -19,27 +19,27 @@ function Signin() {
         }
     },[] );
     
-    let onValidateToken = async ()=>{
+    // let onValidateToken = async ()=>{
 
-        let dataToSend = new FormData();
-        dataToSend.append("token", localStorage.getItem("token"));
+    //     let dataToSend = new FormData();
+    //     dataToSend.append("token", localStorage.getItem("token"));
         
-        let reqOptions = {
-            method: "POST",
-            body:dataToSend,
-        }
+    //     let reqOptions = {
+    //         method: "POST",
+    //         body:dataToSend,
+    //     }
 
-        let JSONData =  await fetch("/validateToken",reqOptions);
-        // (JSON=>JSO)
-        let JSOData = await JSONData.json();
-        console.log(JSOData);
-        // alert(JSOData.message);
+    //     let JSONData =  await axios.post("/validateToken",reqOptions);
+    //     // (JSON=>JSO)
+    //     let JSOData = await JSONData.json();
+    //     console.log(JSOData);
+    //     // alert(JSOData.message);
 
-        if(JSOData.status === "SUCCESS"){
-            dispatch({ type:"signin", data:JSOData.data });
-            navigate("/dashboard")
-        }
-    };
+    //     if(JSOData.status === "SUCCESS"){
+    //         dispatch({ type:"signin", data:JSOData.data });
+    //         navigate("/dashboard");
+    //     }
+    // };
   
     //FORMDATA
     // let onSignin = async()=>{
@@ -64,6 +64,7 @@ function Signin() {
     // }
 
     // AXIOS
+    
     let onSignin = async()=>{
         let dataToSend =  new FormData();
         dataToSend.append("email",emailInputRef.current.value);

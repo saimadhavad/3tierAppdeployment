@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import TopNavigation from './TopNavigation'
-
+import axios from 'axios'
 function Dashboard() {
 
     let userDetails = useSelector( (store)=>{
         return store.userDetails;
     })
+    useEffect( ()=>{
+            axios.defaults.baseURL ="";
+        },[] );
 
   return (
     <div className='App dashboardDiv'>

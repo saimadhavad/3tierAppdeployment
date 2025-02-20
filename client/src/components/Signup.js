@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Signup() {
 
@@ -12,6 +13,10 @@ function Signup() {
     let profilePicInputRef = useRef();
 
     let[profilePic, setProfilePic] = useState("./images/no-pic.png");
+
+    useEffect( ()=>{
+        axios.defaults.baseURL ="";
+    },[] );
 
     // JSON (JSO=>JSON)
     let onSignupUsingJSON = async () =>{
@@ -81,16 +86,16 @@ function Signup() {
             dataToSend.append("profilePic",profilePicInputRef.current.files[i]);
         }
 
-        let reqOptions = {
-            method: "POST",
-            body:dataToSend,
-        }
+        // let reqOptions = {
+        //     method: "POST",
+        //     body:dataToSend,
+        // }
 
-        let JSONData =  await fetch("/signup",reqOptions);
+        let response =  await axios.post("/signup",dataToSend);
         // (JSON=>JSO)
-        let JSOData = await JSONData.json();
-        console.log(JSOData);
-        alert(JSOData.message);
+        // let JSOData = await JSONData.json();
+        console.log(response.data);
+        alert(response.data.message);
     }
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import TopNavigation from './TopNavigation'
 import { useSelector } from 'react-redux';
-import { Form } from 'react-router-dom';
+import axios from 'axios';
 
 function EditProfile() {
   let firstNameInputRef = useRef();
@@ -24,8 +24,13 @@ function EditProfile() {
       ageInputRef.current.value = userDetails.age;
       emailInputRef.current.value = userDetails.email;
       mobileNumberInputRef.current.value = userDetails.mobileNumber;
-      setProfilePic(`profilePic}`);
+    
+        setProfilePic(userDetails.profilePic ? `/${userDetails.profilePic}`: "./images/no-pic.png");
+     
     },[]);
+    useEffect( ()=>{
+        axios.defaults.baseURL ="";
+    },[] );
 
     //FORMDATA - UPDATE & DELETE
     let onUpdateProfile = async ()=>{
@@ -41,17 +46,17 @@ function EditProfile() {
             dataToSend.append("profilePic",profilePicInputRef.current.files[i]);
         }
 
-        let reqOptions = {
-            method: "PATCH",
-            body:dataToSend,
-        }
+        // let reqOptions = {
+        //     method: "PATCH",
+        //     body:dataToSend,
+        // }
 
-        let JSONData =  await fetch("/updateProfile",reqOptions);
+        let JSONData =  await axios.patch("/updateProfile",dataToSend);
         // (JSON=>JSO)
-        let JSOData = await JSONData.json();
-        setProfilePic(JSOData)
-        console.log(JSOData);
-        alert(JSOData.message);
+        // let JSOData = await JSONData.json();
+       
+        console.log(JSONData.data);
+        alert(JSONData.data.message);
     }
     let deleteProfile =  async ()=>{
 
