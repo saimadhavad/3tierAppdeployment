@@ -12,7 +12,7 @@ function Signin() {
     let dispatch = useDispatch();
 
     useEffect( ()=>{
-        axios.defaults.baseURL ="http://localhost:1611";
+        axios.defaults.baseURL ="1";
         if(localStorage.getItem("token")){
             // onValidateToken();
             axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
@@ -29,7 +29,7 @@ function Signin() {
             body:dataToSend,
         }
 
-        let JSONData =  await fetch("http://localhost:1611/validateToken",reqOptions);
+        let JSONData =  await fetch("1/validateToken",reqOptions);
         // (JSON=>JSO)
         let JSOData = await JSONData.json();
         console.log(JSOData);
@@ -50,7 +50,7 @@ function Signin() {
     //         method: "POST",
     //         body:dataToSend,
     //     }
-    //     let JSONData =  await fetch("http://localhost:1611/signin",reqOptions);
+    //     let JSONData =  await fetch("/signin",reqOptions);
     //     // (JSON=>JSO)
     //     let JSOData = await JSONData.json();
     //     console.log(JSOData);

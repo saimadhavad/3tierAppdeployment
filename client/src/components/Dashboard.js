@@ -13,7 +13,7 @@ function Dashboard() {
         <TopNavigation/>
         <h1>Dashboard</h1>
         <h2>Welcome, {userDetails.firstName}🍃</h2>
-        <img className='dashboardPPPreview' src={`http://localhost:1611/${userDetails.profilePic}`} alt={`${userDetails.lastName}'s Image`}></img>
+        <img className='dashboardPPPreview' src={`1/${userDetails.profilePic}`} alt={`${userDetails.lastName}'s Image`}></img>
     </div>
   )
 }

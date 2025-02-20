@@ -39,7 +39,7 @@ function Signup() {
             headers: myHeaders,
         };
 
-        let JSONData =  await fetch("http://localhost:1611/signup",reqOptions);
+        let JSONData =  await fetch("1/signup",reqOptions);
         console.log(JSONData);
     }
     // URL ENCODED
@@ -61,7 +61,7 @@ function Signup() {
             headers:myHeaders,
         };
 
-        let JSONData =  await fetch("http://localhost:1611/signup",reqOptions);
+        let JSONData =  await fetch("/signup",reqOptions);
         // (JSON=>JSO)
         let JSOData = await JSONData.json();
         console.log(JSOData);
@@ -86,7 +86,7 @@ function Signup() {
             body:dataToSend,
         }
 
-        let JSONData =  await fetch("http://localhost:1611/signup",reqOptions);
+        let JSONData =  await fetch("/signup",reqOptions);
         // (JSON=>JSO)
         let JSOData = await JSONData.json();
         console.log(JSOData);

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const cors =  require("cors");
 const multer = require("multer");
+const path = require("path");
 const jwt = require("jsonwebtoken");
 const bcrypt =  require("bcrypt");
 const dotenv = require("dotenv");
@@ -13,18 +14,12 @@ app.listen(process.env.port,()=>{
     console.log(`Listening to port ${process.env.port}...`);
 });
 app.use('/uploads', express.static("uploads"));
-
-let authorise = (request,response,next) =>{
-    console.log("Inside AUTHORIZATION middleware function...");
-    console.log(request.headers["authorization"]);
-    next();
-};
-app.use(authorise);
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 // EXPRESS MIDDLEWARE FOR JSON
 app.use(express.json());
 // EXPRESS MIDDLEWARE FOR URL ENCODED
-// app.use(express.urlencoded());
+ app.use(express.urlencoded());
 // EXPRESS MIDDLEWARE FOR FORMDATA(MULTER)
 const storage = multer.diskStorage({
     destination: (req, file, cb)=> {
@@ -34,9 +29,21 @@ const storage = multer.diskStorage({
         console.log(file);
       cb(null, `${Date.now()}_${file.originalname}`);
     }
-  })
-  
+  });
   const upload = multer({ storage: storage });
+
+let authorise = (request,response,next) =>{
+    console.log("Inside AUTHORIZATION middleware function...");
+    console.log(request.headers["authorization"]);
+    next();
+};
+app.use(authorise);  
+
+app.get("*", (request,response)=>{
+    response.sendFile("./client/build/index.html");
+});
+
+
 
 // APIENDPOINT - POST - JSON/URLENCODED/FORMDATA - SIGNUP
 app.post("/signup",  upload.single("profilePic"), async (request,response)=>{

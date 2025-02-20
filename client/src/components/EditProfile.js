@@ -24,7 +24,7 @@ function EditProfile() {
       ageInputRef.current.value = userDetails.age;
       emailInputRef.current.value = userDetails.email;
       mobileNumberInputRef.current.value = userDetails.mobileNumber;
-      setProfilePic(`http://localhost:1611/${userDetails.profilePic}`);
+      setProfilePic(`ePic}`);
     },[]);
 
     //FORMDATA - UPDATE & DELETE
@@ -46,7 +46,7 @@ function EditProfile() {
             body:dataToSend,
         }
 
-        let JSONData =  await fetch("http://localhost:1611/updateProfile",reqOptions);
+        let JSONData =  await fetch("1/updateProfile",reqOptions);
         // (JSON=>JSO)
         let JSOData = await JSONData.json();
         console.log(JSOData);
@@ -61,7 +61,7 @@ function EditProfile() {
         method:"DELETE",
         body:dataToSend,
       };
-      let JSONData = await fetch("http://localhost:1611/deleteProfile", reqOptions);
+      let JSONData = await fetch("1/deleteProfile", reqOptions);
       let JSOData = await JSONData.json();
       alert(JSOData.message);
 
