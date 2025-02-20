@@ -46,7 +46,7 @@ function EditProfile() {
             body:dataToSend,
         }
 
-        let JSONData =  await fetch("1/updateProfile",reqOptions);
+        let JSONData =  await fetch("/updateProfile",reqOptions);
         // (JSON=>JSO)
         let JSOData = await JSONData.json();
         console.log(JSOData);
@@ -61,7 +61,7 @@ function EditProfile() {
         method:"DELETE",
         body:dataToSend,
       };
-      let JSONData = await fetch("1/deleteProfile", reqOptions);
+      let JSONData = await fetch("/deleteProfile", reqOptions);
       let JSOData = await JSONData.json();
       alert(JSOData.message);
 
